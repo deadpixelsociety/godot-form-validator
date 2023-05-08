@@ -12,6 +12,12 @@ An [example scene](addons/godot-form-validator/example/example.tscn) is provided
 
 The ```FormValidator``` control should sit as a parent (direct or indirect) to the controls you wish to validate. 
 
+### Signals
+* ```control_validated``` - Emitted when a control has been validated either through auto validation or after calling ```FormValidator.validate()```.
+   * ```control``` - The control that was validated.
+   * ```passed``` - True if the control passed validation; otherwise, false.
+   * ```messages``` - A ```PackedStringArray``` of failed validation messages, if any.
+
 ### Properties
 
 * Auto Validate - If true then controls will trigger validation logic when they lose focus (or their value is changed in the case of ```Range``` controls or controls that provide a ```value_changed``` signal.). Otherwise, validation must be invoked manually via ```FormValidator.validate()```.
