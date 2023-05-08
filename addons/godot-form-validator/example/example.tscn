@@ -1,0 +1,441 @@
+[gd_scene load_steps=41 format=3 uid="uid://dpi5vv8r80o7r"]
+
+[ext_resource type="Script" path="res://addons/godot-form-validator/example/example.gd" id="1_8caq6"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/form_validator.gd" id="2_mtxo0"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/control_validator.gd" id="3_hkwup"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/rules/alpha_rule.gd" id="4_dq1df"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/rules/required_rule.gd" id="5_cu56g"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/validators/line_edit_validator.gd" id="5_rknpr"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/rules/numeric_rule.gd" id="7_6vtuw"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/rules/alphanumeric_rule.gd" id="8_mu0ia"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/rules/email_rule.gd" id="9_4ynyw"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/rules/length_rule.gd" id="10_iuueu"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/rules/greater_than_rule.gd" id="11_1tya3"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/validators/range_validator.gd" id="11_51cp7"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/validators/button_validator.gd" id="13_eri47"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/rules/custom_rule.gd" id="13_ibg52"]
+[ext_resource type="Script" path="res://addons/godot-form-validator/rules/boolean_rule.gd" id="15_xjpko"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nw8ds"]
+font_size = 24
+
+[sub_resource type="Resource" id="Resource_i25hd"]
+script = ExtResource("5_cu56g")
+fail_message = "A value is required."
+
+[sub_resource type="Resource" id="Resource_4mimn"]
+script = ExtResource("4_dq1df")
+fail_message = "Value must contain only alpha characters."
+
+[sub_resource type="Resource" id="Resource_15man"]
+script = ExtResource("5_rknpr")
+validation_order = 1
+validation_method = 0
+skip_validation = false
+rules = Array[Resource("res://addons/godot-form-validator/rules/validator_rule.gd")]([SubResource("Resource_i25hd"), SubResource("Resource_4mimn")])
+
+[sub_resource type="LabelSettings" id="LabelSettings_su7t3"]
+font_color = Color(1, 0.568627, 0.580392, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_urp4f"]
+font_color = Color(0.254902, 0.831373, 0.556863, 1)
+
+[sub_resource type="Resource" id="Resource_j4pud"]
+script = ExtResource("5_cu56g")
+fail_message = "A value is required."
+
+[sub_resource type="Resource" id="Resource_xxhfq"]
+script = ExtResource("7_6vtuw")
+fail_message = "Value must contain only numbers."
+
+[sub_resource type="Resource" id="Resource_1t3q0"]
+script = ExtResource("5_rknpr")
+validation_order = 1
+validation_method = 0
+skip_validation = false
+rules = Array[Resource("res://addons/godot-form-validator/rules/validator_rule.gd")]([SubResource("Resource_j4pud"), SubResource("Resource_xxhfq")])
+
+[sub_resource type="Resource" id="Resource_ftvbf"]
+script = ExtResource("8_mu0ia")
+fail_message = "Value must contain only alphanumeric cahracters."
+
+[sub_resource type="Resource" id="Resource_my5ss"]
+script = ExtResource("5_cu56g")
+fail_message = "A value is required."
+
+[sub_resource type="Resource" id="Resource_61y5a"]
+script = ExtResource("5_rknpr")
+validation_order = 1
+validation_method = 0
+skip_validation = false
+rules = Array[Resource("res://addons/godot-form-validator/rules/validator_rule.gd")]([SubResource("Resource_ftvbf"), SubResource("Resource_my5ss")])
+
+[sub_resource type="Resource" id="Resource_f3i8j"]
+script = ExtResource("9_4ynyw")
+fail_message = "Value must be a valid email address."
+
+[sub_resource type="Resource" id="Resource_l5e3w"]
+script = ExtResource("5_cu56g")
+fail_message = "A value is required."
+
+[sub_resource type="Resource" id="Resource_q4oax"]
+script = ExtResource("5_rknpr")
+validation_order = 1
+validation_method = 0
+skip_validation = false
+rules = Array[Resource("res://addons/godot-form-validator/rules/validator_rule.gd")]([SubResource("Resource_f3i8j"), SubResource("Resource_l5e3w")])
+
+[sub_resource type="Resource" id="Resource_d1g5r"]
+script = ExtResource("5_cu56g")
+fail_message = "A value is required."
+
+[sub_resource type="Resource" id="Resource_jqdfw"]
+script = ExtResource("10_iuueu")
+min_length = 5
+max_length = 10
+fail_message = ""
+
+[sub_resource type="Resource" id="Resource_62odm"]
+script = ExtResource("5_rknpr")
+validation_order = 1
+validation_method = 0
+skip_validation = false
+rules = Array[Resource("res://addons/godot-form-validator/rules/validator_rule.gd")]([SubResource("Resource_d1g5r"), SubResource("Resource_jqdfw")])
+
+[sub_resource type="Resource" id="Resource_qm2iv"]
+script = ExtResource("5_cu56g")
+fail_message = "A value is required."
+
+[sub_resource type="Resource" id="Resource_brbah"]
+script = ExtResource("11_1tya3")
+target_value = "3"
+fail_message = ""
+
+[sub_resource type="Resource" id="Resource_smogv"]
+script = ExtResource("11_51cp7")
+validation_order = 1
+validation_method = 0
+skip_validation = false
+rules = Array[Resource("res://addons/godot-form-validator/rules/validator_rule.gd")]([SubResource("Resource_qm2iv"), SubResource("Resource_brbah")])
+
+[sub_resource type="Resource" id="Resource_4riv3"]
+script = ExtResource("13_ibg52")
+expression = "control.color.r > 0.5"
+fail_message = "The red channel must be greater than 0.5."
+
+[sub_resource type="Resource" id="Resource_mh7td"]
+script = ExtResource("13_eri47")
+validation_order = 1
+validation_method = 0
+skip_validation = false
+rules = Array[Resource("res://addons/godot-form-validator/rules/validator_rule.gd")]([SubResource("Resource_4riv3")])
+
+[sub_resource type="Resource" id="Resource_3nuq2"]
+script = ExtResource("15_xjpko")
+target_value = true
+fail_message = "The check box must be checked."
+
+[sub_resource type="Resource" id="Resource_kbsj8"]
+script = ExtResource("13_eri47")
+validation_order = -1
+validation_method = 0
+skip_validation = false
+rules = Array[Resource("res://addons/godot-form-validator/rules/validator_rule.gd")]([SubResource("Resource_3nuq2")])
+
+[node name="Example" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8caq6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="FormValidator" type="Control" parent="MarginContainer"]
+layout_mode = 2
+script = ExtResource("2_mtxo0")
+auto_validate = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/FormValidator"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2"]
+layout_mode = 2
+text = "Godot Form Validator Examples"
+label_settings = SubResource("LabelSettings_nw8ds")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/FormValidator/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 4
+
+[node name="Label" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "Alpha"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Alpha" type="LineEdit" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ControlValidator" type="Node" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer/Alpha"]
+script = ExtResource("3_hkwup")
+validator = SubResource("Resource_15man")
+
+[node name="AlphaError" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "ERROR"
+label_settings = SubResource("LabelSettings_su7t3")
+autowrap_mode = 2
+
+[node name="AlphaValid" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Valid!"
+label_settings = SubResource("LabelSettings_urp4f")
+
+[node name="Label2" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "Numeric"
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Numeric" type="LineEdit" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="ControlValidator" type="Node" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer2/Numeric"]
+script = ExtResource("3_hkwup")
+validator = SubResource("Resource_1t3q0")
+
+[node name="NumericError" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "ERROR"
+label_settings = SubResource("LabelSettings_su7t3")
+autowrap_mode = 2
+
+[node name="NumericValid" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "Valid!"
+label_settings = SubResource("LabelSettings_urp4f")
+
+[node name="Label3" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "Alphanumeric"
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Alphanumeric" type="LineEdit" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="ControlValidator" type="Node" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer3/Alphanumeric"]
+script = ExtResource("3_hkwup")
+validator = SubResource("Resource_61y5a")
+
+[node name="AlphanumericError" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer3"]
+visible = false
+layout_mode = 2
+text = "ERROR"
+label_settings = SubResource("LabelSettings_su7t3")
+autowrap_mode = 2
+
+[node name="AlphanumericValid" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer3"]
+visible = false
+layout_mode = 2
+text = "Valid!"
+label_settings = SubResource("LabelSettings_urp4f")
+
+[node name="Label4" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "Email"
+vertical_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Email" type="LineEdit" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer4"]
+layout_mode = 2
+
+[node name="ControlValidator" type="Node" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer4/Email"]
+script = ExtResource("3_hkwup")
+validator = SubResource("Resource_q4oax")
+
+[node name="EmailError" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer4"]
+visible = false
+layout_mode = 2
+text = "ERROR"
+label_settings = SubResource("LabelSettings_su7t3")
+autowrap_mode = 2
+
+[node name="EmailValid" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer4"]
+visible = false
+layout_mode = 2
+text = "Valid!"
+label_settings = SubResource("LabelSettings_urp4f")
+
+[node name="Label5" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "Length"
+vertical_alignment = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Length" type="LineEdit" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer5"]
+layout_mode = 2
+
+[node name="ControlValidator" type="Node" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer5/Length"]
+script = ExtResource("3_hkwup")
+validator = SubResource("Resource_62odm")
+
+[node name="LengthError" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer5"]
+visible = false
+layout_mode = 2
+text = "ERROR"
+label_settings = SubResource("LabelSettings_su7t3")
+autowrap_mode = 2
+
+[node name="LengthValid" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer5"]
+visible = false
+layout_mode = 2
+text = "Valid!"
+label_settings = SubResource("LabelSettings_urp4f")
+
+[node name="Label6" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "Value"
+vertical_alignment = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Value" type="SpinBox" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer6"]
+layout_mode = 2
+
+[node name="ControlValidator" type="Node" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer6/Value"]
+script = ExtResource("3_hkwup")
+validator = SubResource("Resource_smogv")
+
+[node name="ValueError" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer6"]
+visible = false
+layout_mode = 2
+text = "ERROR"
+label_settings = SubResource("LabelSettings_su7t3")
+autowrap_mode = 2
+
+[node name="ValueValid" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer6"]
+visible = false
+layout_mode = 2
+text = "Valid!"
+label_settings = SubResource("LabelSettings_urp4f")
+
+[node name="Label7" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "Custom"
+vertical_alignment = 1
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorPicker" type="ColorPickerButton" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer7"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ControlValidator" type="Node" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer7/ColorPicker"]
+script = ExtResource("3_hkwup")
+validator = SubResource("Resource_mh7td")
+
+[node name="ColorPickerError" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer7"]
+visible = false
+layout_mode = 2
+text = "ERROR"
+label_settings = SubResource("LabelSettings_su7t3")
+autowrap_mode = 2
+
+[node name="ColorPickerValid" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer7"]
+visible = false
+layout_mode = 2
+text = "Valid!"
+label_settings = SubResource("LabelSettings_urp4f")
+
+[node name="Label8" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "Checked"
+vertical_alignment = 1
+
+[node name="VBoxContainer8" type="VBoxContainer" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Checked" type="CheckBox" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer8"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ControlValidator" type="Node" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer8/Checked"]
+script = ExtResource("3_hkwup")
+validator = SubResource("Resource_kbsj8")
+
+[node name="CheckedError" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer8"]
+visible = false
+layout_mode = 2
+text = "ERROR"
+label_settings = SubResource("LabelSettings_su7t3")
+autowrap_mode = 2
+
+[node name="CheckedValid" type="Label" parent="MarginContainer/FormValidator/VBoxContainer2/GridContainer/VBoxContainer8"]
+visible = false
+layout_mode = 2
+text = "Valid!"
+label_settings = SubResource("LabelSettings_urp4f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/FormValidator/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Validate" type="Button" parent="MarginContainer/FormValidator/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Validate Form"
+
+[node name="Exit" type="Button" parent="MarginContainer/FormValidator/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Exit"
+
+[connection signal="control_validated" from="MarginContainer/FormValidator" to="." method="_on_form_validator_control_control_validated"]
+[connection signal="pressed" from="MarginContainer/FormValidator/VBoxContainer2/HBoxContainer/Validate" to="." method="_on_validate_pressed"]
+[connection signal="pressed" from="MarginContainer/FormValidator/VBoxContainer2/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
